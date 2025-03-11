@@ -16,13 +16,13 @@ const hasTemporaryPass = false       //временный пропуск
 let isAccess //доступ
 
 if(
-    (isAdmin === true || isVerifiedUser === true) && (hasSpecialPermission === true || hasTemporaryPass === true)
-){
-    isAccess === true 
+    (isAdmin === true && hasSpecialPermission === true)||isVerifiedUser ===true||hasTemporaryPass===true)
+    {
+    isAccess = true 
     console.log('Доступ получен');
     
 }else{
-    isAccess ===  false
+    isAccess =  false
     console.log("Доступ не получен");
     
 }
