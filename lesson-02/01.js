@@ -13,20 +13,21 @@ const isVerifiedUser = false      //подтвержден пользовате�
 const hasSpecialPermission = true   //специальное разрешение
 const hasTemporaryPass = false       //временный пропуск
 
-let isAccess //доступ
-
-if(
-    (isAdmin === true && hasSpecialPermission === true)||isVerifiedUser ===true||hasTemporaryPass===true)
-    {
-    isAccess = true 
-    console.log('Доступ получен');
+let isAccess = false//доступ
+if (isAdmin === true || isVerifiedUser === true) {
+    if (hasSpecialPermission === true || hasTemporaryPass === true) {
+        isAccess = true
+    }
     
-}else{
-    isAccess =  false
-    console.log("Доступ не получен");
-    
-}
+}console.log(isAccess);
 
+
+// if ((isAdmin === true && hasSpecialPermission === true) || isVerifiedUser === true || hasTemporaryPass === true) {
+//     isAccess = true 
+// } else {
+//     isAccess = false   
+// }
+// console.log(isAccess);
 
 
 
