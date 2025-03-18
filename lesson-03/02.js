@@ -2,7 +2,7 @@
 // Функция должна возвращать true, если число чётное, и false — в противном случае
 
 
-let i = 3
+let i = 2
 
 function isEven(number_1) {
     return i % 2 === 0;
