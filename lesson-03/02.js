@@ -2,10 +2,8 @@
 // Функция должна возвращать true, если число чётное, и false — в противном случае
 
 
-let i = 2
-
 function isEven(number_1) {
-    return i % 2 === 0;
+    return number_1 % 2 === 0;
     // if (i % 2 === 0) {
     //     return true;
     // }
@@ -13,7 +11,7 @@ function isEven(number_1) {
 
     // return i % 2 === 0 ? true : false;
 }
-console.log(isEven(i));
+console.log(isEven(4));
 
 
 
