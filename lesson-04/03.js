@@ -19,8 +19,8 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
-let array1 = ['Женя', 'Петя', 'Маша'];
-let array2 = ['Коля', 'Женя', 'Маша'];
+let array1 = [1, 2, 3];
+let array2 = [2, 3, 4];
 let array3 = array1.filter(item => array2.includes(item));
 
 function findCommonElements(arr) {
