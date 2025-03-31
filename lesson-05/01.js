@@ -15,5 +15,17 @@ const game = {
     gold: 250,
     lumber: 100,
   },
-  addResource() {}
+  addResource: function (resource, amount) {
+    // Если ресурс существует, метод должен добавлять значение `amount` к текущему количеству этого ресурса в объекте.
+    if (this.resources.hasOwnProperty(resource)) {
+      this.resources[resource] = this.resources[resource] + amount
+    } else {
+      console.log('Invalid resource');
+    }
+  }
 }
+
+console.log(game.resources);
+game.addResource('l', 10)
+console.log(game.resources);
+

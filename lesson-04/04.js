@@ -17,8 +17,8 @@ let str = "hello"
 
 function doubleEachCharacter(string){
     let res = ""
-    for (let char of string){  //char это буква из строки(можно любое слово написать)
-        res = res + char + char
+    for (let i = 0; i < string.length; i++){  //char это буква из строки(можно любое слово написать let char of string)
+        res = res + string[i] + string[i]                   //+char
         
     }
     return res
