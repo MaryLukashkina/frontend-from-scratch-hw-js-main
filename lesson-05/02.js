@@ -38,12 +38,7 @@ const gallery = {
 }
 
 function updateGallery(objGallery, name, newName) {
-
-  if (objGallery.hasOwnProperty(name)) {
-    objGallery[name] = objGallery[name] + newName
-  } else {
     objGallery[name] = newName
-  }
 }
 
 
