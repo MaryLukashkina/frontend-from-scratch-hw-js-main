@@ -21,22 +21,30 @@ const WEB_TECH_IMAGES = [
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/784380b9-6937-42a6-bdfe-869835820234_html-magic-logo.jpg',
 ]
 
-let currentIndex = 0; // Начальный индекс
+let currentIndex = 0; // текущий индекс
 
-        const imgElement = document.getElementById('web-tech-image');  //текущий 
-        const prevBtn = document.getElementById('prev-button'); //предыдущий
-        const nextBtn = document.getElementById('next-button'); // следующий
 
-        function updateImage() {
-          imgElement.src = WEB_TECH_IMAGES[currentIndex]; // Обновляем изображение
-      }
+const imgElement = document.getElementById('web-tech-image');  //находим индекс элемента по ID
+function updateImage() {
+  imgElement.src = WEB_TECH_IMAGES[currentIndex]; // Обновляем изображение
+}
 
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + WEB_TECH_IMAGES.length) % WEB_TECH_IMAGES.length; // Переход к предыдущему изображению
-        updateImage();
-    });
+const prevBtn = document.getElementById('prev-button'); //находим индекс элемента по ID
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--; // Переход к предыдущему изображению
+  } else {
+    currentIndex = WEB_TECH_IMAGES.length - 1; // Если текущее изображение первое, переходим к последнему
+  }
+  updateImage();
+});
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % WEB_TECH_IMAGES.length; // Переход к следующему изображению
-      updateImage();
-  });
+const nextBtn = document.getElementById('next-button'); // находим индекс элемента по ID
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < WEB_TECH_IMAGES.length - 1) {
+    currentIndex++; // Переход к следующему изображению
+  } else {
+    currentIndex = 0; // Если текущее изображение последнее, переходим к первому
+  }
+  updateImage();
+});
