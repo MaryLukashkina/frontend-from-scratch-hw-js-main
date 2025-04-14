@@ -4,11 +4,21 @@
  */
 
 function isNumeric(str) {
-  // your code
-}
+  return !isNaN(str) && !isNaN(parseFloat(str)) ? true : false;
+ }
+   
 
-// console.log(isNumeric("123")) // Ожидаемый результат: true
-// console.log(isNumeric("12.3")) // Ожидаемый результат: true
-// console.log(isNumeric("123abc")) // Ожидаемый результат: false
-// console.log(isNumeric("abc")) // Ожидаемый результат: false
-// console.log(isNumeric(" ")) // Ожидаемый результат: false
+console.log(isNumeric("123")) // Ожидаемый результат: true
+console.log(isNumeric("12.3")) // Ожидаемый результат: true
+console.log(isNumeric("123abc")) // Ожидаемый результат: false
+console.log(isNumeric("abc")) // Ожидаемый результат: false
+console.log(isNumeric(" ")) // Ожидаемый результат: false
+
+
+// Конструкция !isNaN() используется для определения, является ли значение «не числом» (NaN).
+// !isNaN() вернет true, если значение может быть преобразовано в число
+
+// parseFloat(str): Преобразует строку в число с плавающей точкой. 
+// Если преобразование невозможно, то результат будет NaN.
+
+// NAN что означает « не число »
