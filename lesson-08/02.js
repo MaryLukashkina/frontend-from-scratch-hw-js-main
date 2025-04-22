@@ -35,32 +35,36 @@ const startButton = document.getElementById('start')
 const cancelButton = document.getElementById('cancel')
 const countdownDisplay = document.getElementById('countdown')
 
-let isTimerStarted = false
-let timerId
+let isTimerStarted = false // Флаг, показывающий, запущен ли таймер
+let timerId // Идентификатор таймера
 
 
 startButton.addEventListener('click', () => {
+  if (isTimerStarted) return // Если таймер уже запущен, игнорируем нажатие кнопки "Старт"
+
   let counter = 3
+isTimerStarted = true; // Отметим, что таймер запущен
   countdownDisplay.textContent = counter
 
 
-  const intervalId = setInterval(function () {
+  timerId = setInterval(function () {
     counter--
-    if (counter >= 0) {
+    if (counter > 0) {
       countdownDisplay.textContent = counter; // Обновляем отображение счётчика
-    }
-
-    if (counter === 0) {
-      clearInterval(intervalId)
+    } else {
       countdownDisplay.textContent = '🚀';
-    }
+
+      clearInterval(timerId)
+      isTimerStarted = false; // Сбрасываем состояние таймера
+    } 
   }, 1000)
+
 })
 
 
 cancelButton.addEventListener('click', () => {
 // Проверяем, запущен ли таймер. Если да, останавливаем его
-if (!isTimerStarted) {
+if (isTimerStarted) {
   clearInterval(timerId); // Останавливаем таймер
   countdownDisplay.textContent = 'Отменено'; // Отображаем сообщение об отмене
   isTimerStarted = false; // Сбрасываем состояние
