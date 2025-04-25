@@ -30,7 +30,12 @@ const filter = (array, callback) => {
   let resultArr = []
   for (let i = 0; i < array.length; i++) {
     if (callback(array[i], i)) {
-      resultArr.push(array[i])
+      resultArr.push(array[i])   
+      //с if (callback(...))) используется для фильтрации 
+      // элементов массива и создания нового массива на основе логического условия, 
+      // что соответствует поведению метода filter.
+
+
     }
   }
   return resultArr

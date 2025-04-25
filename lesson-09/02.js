@@ -29,10 +29,12 @@ console.log(doubledNumbers) // Должен вывести: [2, 4, 6, 8, 10]
 const map = (array, callback) => {
   let resultArr = []
   for (let i = 0; i < array.length; i++) {
-    if (callback(array[i], i)) {
-      resultArr.push(array[i]*2)
-    }
-  } 
+
+    resultArr.push(callback(array[i], i))
+    //с push(callback(...))) используется для преобразования элементов массива и создания 
+    // нового массива, что соответствует поведению метода map.
+
+  }
   return resultArr
 }
 
