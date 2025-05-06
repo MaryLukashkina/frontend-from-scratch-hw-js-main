@@ -43,7 +43,7 @@ startButton.addEventListener('click', () => {
   if (isTimerStarted) return // Если таймер уже запущен, игнорируем нажатие кнопки "Старт"
 
   let counter = 3
-isTimerStarted = true; // Отметим, что таймер запущен
+  isTimerStarted = true; // Отметим, что таймер запущен
   countdownDisplay.textContent = counter
 
 
@@ -56,18 +56,18 @@ isTimerStarted = true; // Отметим, что таймер запущен
 
       clearInterval(timerId)
       isTimerStarted = false; // Сбрасываем состояние таймера
-    } 
+    }
   }, 1000)
 
 })
 
 
 cancelButton.addEventListener('click', () => {
-// Проверяем, запущен ли таймер. Если да, останавливаем его
-if (isTimerStarted) {
-  clearInterval(timerId); // Останавливаем таймер
-  countdownDisplay.textContent = 'Отменено'; // Отображаем сообщение об отмене
-  isTimerStarted = false; // Сбрасываем состояние
-}
+  // Проверяем, запущен ли таймер. Если да, останавливаем его
+  if (isTimerStarted) {
+    clearInterval(timerId); // Останавливаем таймер
+    countdownDisplay.textContent = 'Отменено'; // Отображаем сообщение об отмене
+    isTimerStarted = false; // Сбрасываем состояние
+  }
 
 })

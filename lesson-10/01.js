@@ -1,7 +1,9 @@
 /*
-  Цель задания: Разработать функционал для удаления фильма из списка с использованием паттерна MVC. После удаления фильма, необходимо отобразить сообщение "Фильм успешно удалён!" в message-box
+  Цель задания: Разработать функционал для удаления фильма из списка с использованием паттерна MVC. 
+  После удаления фильма, необходимо отобразить сообщение "Фильм успешно удалён!" в message-box
 
-  При возникновении сложностей можете ознакомиться с пошаговым планом реализации ниже, но лучше попробовать сначала самостоятельно 🧙‍♂️
+  При возникновении сложностей можете ознакомиться с пошаговым планом реализации ниже, но лучше 
+  попробовать сначала самостоятельно 🧙‍♂️
 
 Пошаговый план реализации:
 
@@ -26,10 +28,25 @@ const model = {
   addMovie(title, description) {
     const id = Math.random()
     const newMovie = { id, title, description }
+
     this.movies.push(newMovie)
+
     view.renderMovies(this.movies)
   },
   // your code
+
+  deleteMovie(taskId){
+    this.movies = this.movies.filter(newMovie => {
+      return taskId !== newMovie.id //"Пройди по всем фильмам и оставь только те, 
+      // у которых id не равен taskId
+  })
+  view.renderMovies(this.movies)
+  }
+
+
+
+
+
 }
 
 const view = {
@@ -39,6 +56,10 @@ const view = {
     const form = document.querySelector('.form')
     const inputTitle = document.querySelector('.input-title')
     const inputDescription = document.querySelector('.input-description')
+    // const deletebtn = document.querySelector('.delete-button')
+
+
+
 
     form.addEventListener('submit', function (event) {
       event.preventDefault()
@@ -51,9 +72,32 @@ const view = {
     })
 
     // your code
+
+    // list.addEventListener('click', function (event) {
+    //         if (event.target.classList.contains('delete-button')) {
+    //             const taskId = +event.target.parentElement.id
+    //             controller.deleteMovie(taskId)
+    //         }
+    //     })
+
+
+
+
   },
   renderMovies(movies) {
     const list = document.querySelector('.list')
+
+//мой код
+    list.addEventListener('click', function (event) {
+              if (event.target.classList.contains('delete-button')) {
+                  const taskId = +event.target.parentElement.id
+                  controller.deleteMovie(taskId)
+              }
+          })
+
+
+
+
     let moviesHTML = ''
 
     for (const movie of movies) {
@@ -91,6 +135,14 @@ const controller = {
     }
   },
   // your code
+
+  deleteMovie(taskId){
+    model.deleteMovie(taskId)
+    view.displayMessage('Фильм успешно удалён!')
+  }
+
+
+
 }
 
 function init() {
